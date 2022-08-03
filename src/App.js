@@ -22,7 +22,7 @@ const [todo, setToDo] = useState([
     title: "third todo",
     status: true,
   },
-])
+]);
 
   return (
     <body>
@@ -30,7 +30,7 @@ const [todo, setToDo] = useState([
         <div className='taskToDo_body'>
           <SearchToDo />
           <ListToDo todo={todo} setToDo={setToDo}/>
-          <AddToDo />
+          <AddToDo todo={todo} setToDo={setToDo}/>
         </div>
         <div className='editingToDo_body'>
 
