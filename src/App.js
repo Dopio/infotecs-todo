@@ -7,32 +7,34 @@ import SearchToDo from './Components/searchToDo';
 
 function App() {
 
-  const [todo, setToDo] = useState([
+  const [todos, setToDo] = useState([
     {
       id: 1,
-      title: "Create todo App",
-      description: "How can i do it?\nEz",
+      title: "abc",
+      description: "How can i do it? Ez",
       active: false,
     },
     {
       id: 2,
-      title: "Learn react hooks",
+      title: "ghj",
       description: "useState and useReducer plz!",
       active: true,
     },
   ]);
 
+  const [searchValue, setSearchValue] = useState('');
+
   return (
     <div className='body_wrapper'>
       <div className='taskToDo_body'>
         <div className='todoLeft__title'>todo list</div>
-        <SearchToDo />
-        <ListToDo todo={todo} setToDo={setToDo} />
+        <SearchToDo todos={todos} setToDo={setToDo} />
+        <ListToDo todos={todos} setToDo={setToDo} />
         <div className='adddTodo__wrapper'> {/* Оболочка необходима для выделения крайнего элемента flex конструкции и привязки к полу*/}
-          <AddToDo todo={todo} setToDo={setToDo} />
+          {/* <AddToDo todos={todos} setToDo={setToDo} /> */}
         </div>
       </div>
-      <EditingToDo todo={todo} setToDo={setToDo} />
+      {/* <EditingToDo todos={todos} setToDo={setToDo} /> */}
     </div>
   );
 }

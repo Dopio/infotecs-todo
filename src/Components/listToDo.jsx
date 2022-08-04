@@ -1,14 +1,27 @@
 import { useState } from 'react';
-import './ListToDo.scss'
+import './ListToDo.scss';
 
 
-let ListToDo = ({ todo, setToDo }) => {
+const filterTodo = (todos, searchValue) => {
+    if (!searchValue) {
+        return todos;
+    }
+    console.log(todos)
+    return todos.filter((todo) => {
+        return todo.title.toLowerCase().includes(searchValue.toLowerCase());
+    });
+};
 
-    const [edit, setEdit] = useState(null)
-    const [value, setValue] = useState('')
+
+let ListToDo = ({ todos, setToDo, searchValue }) => {
+
+    const [edit, setEdit] = useState(null);
+    const [value, setValue] = useState('');
+    const filtredTodos = filterTodo(todos, searchValue);
+
 
     let deleteTodo = (id) => {
-        let newTodo = [...todo].filter(item => item.id !== id);
+        let newTodo = [...todos].filter(item => item.id !== id);
         setToDo(newTodo);
     };
 
@@ -18,12 +31,12 @@ let ListToDo = ({ todo, setToDo }) => {
     };
 
     let saveTodo = (id) => {
-        let newTodo = [...todo].map(item => {
+        let newTodo = [...todos].map(item => {
             if (item.id === id) {
                 item.title = value;
             }
             return item;
-        })
+        });
         setToDo(newTodo);
         setEdit(null);
     };
@@ -31,7 +44,7 @@ let ListToDo = ({ todo, setToDo }) => {
     return (
         <div className='taskToDo__list'>
             {
-                todo.map(item => (
+                filterTodo.map(item => (
                     <div className='taskToDo__list_item' key={item.id}>
                         {
                             edit === item.id ?
