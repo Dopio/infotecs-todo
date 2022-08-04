@@ -15,10 +15,13 @@ let EditingToDo = ({ todo, setToDo }) => {
                             <div key={item.id}>
                                 {
                                     item.active ?
-                                        <div>{item.title}</div>
+                                        <div>
+                                            <div>{item.title}</div>
+                                            <div>{item.description}</div>
+                                        </div>
 
-                                    : <div></div>
-                                        
+                                        : <div></div>
+
                                 }
                             </div>))
                     }

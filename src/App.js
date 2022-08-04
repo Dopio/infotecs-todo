@@ -10,14 +10,14 @@ function App() {
   const [todo, setToDo] = useState([
     {
       id: 1,
-      title: "first todo",
-      status: true,
+      title: "Create todo App",
+      description: "How can i do it?\nEz",
       active: false,
     },
     {
       id: 2,
-      title: "second todo",
-      status: true,
+      title: "Learn react hooks",
+      description: "useState and useReducer plz!",
       active: true,
     },
   ]);

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './ListToDo.css'
+import './ListToDo.scss'
 
 let ListToDo = ({ todo, setToDo }) => {
 
@@ -17,7 +17,7 @@ let ListToDo = ({ todo, setToDo }) => {
     };
 
     let saveTodo = (id) => {
-        let newTodo = [...todo].map(item =>{
+        let newTodo = [...todo].map(item => {
             if (item.id === id) {
                 item.title = value;
             }
@@ -41,7 +41,11 @@ let ListToDo = ({ todo, setToDo }) => {
                                 :
                                 <div>{item.title}</div>
                         }
-                        <button onClick={() => deleteTodo(item.id)}>Delete</button>
+                        <button class="btn btn-delete" onClick={() => deleteTodo(item.id)}>
+                            <span class="mdi mdi-delete mdi-24px"></span>
+                            <span class="mdi mdi-delete-empty mdi-24px"></span>
+                            <span>Delete</span>
+                        </button>
                         <button onClick={() => editTodo(item.id, item.title)}>Edit todo</button>
                     </div>
                 ))
