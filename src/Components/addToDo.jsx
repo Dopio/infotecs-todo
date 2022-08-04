@@ -10,7 +10,7 @@ let AddToDo = ({ todo, setToDo }) => {
         setToDo(
             [
                 ...todo,
-                { id: uuidv4(), title: value, status: true }
+                { id: uuidv4(), title: value, status: true, active: true },
             ]
         );
         setValue('');

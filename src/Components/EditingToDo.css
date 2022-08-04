@@ -1,0 +1,9 @@
+.editingToDo__wrapper{
+    width: 100%;
+  }
+  
+  .editingToDo__body_title{
+    text-transform: uppercase;
+    font-size: 32px;
+    text-align: center;
+  }
