@@ -10,21 +10,18 @@ let EditingToDo = ({ todo, setToDo }) => {
             </div>
             <div className='editingToDo__body'>
                 <div className='todo__title'>
-                    {
-                        todo.map(item => (
-                            <div key={item.id}>
-                                {
-                                    item.active ?
-                                        <div>
-                                            <div>{item.title}</div>
-                                            <div>{item.description}</div>
-                                        </div>
-
-                                        : <div></div>
-
-                                }
-                            </div>))
-                    }
+                    {todo.map(item => (
+                        <div key={item.id}>
+                            {item.active ?
+                                <div>
+                                    <div>{item.title}</div>
+                                    <div>{item.description}</div>
+                                </div>
+                                :
+                                <div></div>
+                            }
+                        </div>
+                    ))}
 
                 </div>
             </div>

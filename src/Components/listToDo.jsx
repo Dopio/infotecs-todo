@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './ListToDo.scss'
 
+
 let ListToDo = ({ todo, setToDo }) => {
 
     const [edit, setEdit] = useState(null)
@@ -34,19 +35,17 @@ let ListToDo = ({ todo, setToDo }) => {
                     <div className='taskToDo__list_item' key={item.id}>
                         {
                             edit === item.id ?
-                                <div>
-                                    <input type="text" onChange={(e) => setValue(e.target.value)} value={value} />
-                                    <button onClick={() => saveTodo(item.id)}>Save</button>
-                                </div>
+                                <>
+                                    <input className='taskToDo__item_input' type="text" onChange={(e) => setValue(e.target.value)} value={value} />
+                                    <button className="button touch save" onClick={() => saveTodo(item.id)}></button>
+                                </>
                                 :
-                                <div>{item.title}</div>
+                                <>
+                                    <div className='taskToDo__item_title'>{item.title}</div>
+                                    <button className="button touch delete" onClick={() => deleteTodo(item.id)}></button>
+                                    <button className="button touch edit" onClick={() => editTodo(item.id, item.title)}></button>
+                                </>
                         }
-                        <button class="btn btn-delete" onClick={() => deleteTodo(item.id)}>
-                            <span class="mdi mdi-delete mdi-24px"></span>
-                            <span class="mdi mdi-delete-empty mdi-24px"></span>
-                            <span>Delete</span>
-                        </button>
-                        <button onClick={() => editTodo(item.id, item.title)}>Edit todo</button>
                     </div>
                 ))
             }

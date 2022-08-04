@@ -10,7 +10,7 @@ let AddToDo = ({ todo, setToDo }) => {
         setToDo(
             [
                 ...todo,
-                { id: uuidv4(), title: value, status: true, active: true },
+                { id: uuidv4(), title: value, status: true, active: false },
             ]
         );
         setValue('');
@@ -18,13 +18,20 @@ let AddToDo = ({ todo, setToDo }) => {
 
     return (
         <div className='taskToDo__addNew'>
-            <input
-                type="text"
-                placeholder='Add new Todo'
-                value={value}
-                onChange={(e) => setValue(e.target.value)}
-            />
-            <button onClick={saveTodo}>+</button>
+            <div className='addNewTodo__input_wrapper'>
+                <input
+                    className='addNewTodo__input'
+                    type="text"
+                    placeholder='New Todo'
+                    value={value}
+                    onChange={(e) => setValue(e.target.value)}
+                />
+            </div>
+            <div className="wrap">
+                <button onClick={saveTodo} className="button">
+                    <span className='button__text'>+</span>
+                </button>
+            </div>
         </div>
     );
 };

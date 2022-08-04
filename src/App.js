@@ -23,16 +23,17 @@ function App() {
   ]);
 
   return (
-    <body>
-      <div className='body_wrapper'>
-        <div className='taskToDo_body'>
-          <SearchToDo />
-          <ListToDo todo={todo} setToDo={setToDo} />
+    <div className='body_wrapper'>
+      <div className='taskToDo_body'>
+        <div className='todoLeft__title'>todo list</div>
+        <SearchToDo />
+        <ListToDo todo={todo} setToDo={setToDo} />
+        <div className='adddTodo__wrapper'> {/* Оболочка необходима для выделения крайнего элемента flex конструкции и привязки к полу*/}
           <AddToDo todo={todo} setToDo={setToDo} />
         </div>
-        <EditingToDo todo={todo} setToDo={setToDo}/>
       </div>
-    </body>
+      <EditingToDo todo={todo} setToDo={setToDo} />
+    </div>
   );
 }
 
