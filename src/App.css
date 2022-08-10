@@ -1,12 +1,12 @@
 body {
   background-color: #07C7A4;
-  min-height:100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 50px;
 }
 
-.body_wrapper {
+.todo__body {
   display: flex;
   width: 1200px;
   height: 720px;
@@ -17,17 +17,29 @@ body {
   padding: 15px;
 }
 
-.taskToDo_body{
+.taskList__body_wrapper{
   display: flex;
   flex-direction: column;
+  overflow: auto;
+  resize: horizontal;
+  max-width: 550px;
+  min-width: 335px;
+  width: 400px;
+  border-right: thick double #81e6d9;
+  padding-right: 8px;
 }
 
-.todoLeft__title{
+.taskList__title{
   text-transform: uppercase;
   text-align: center;
   font-size: 32px;
 }
 
-.adddTodo__wrapper{
+.taskAdd__wrapper{
   margin-top: auto
+}
+
+.taskDescription__body_wrapper{
+  width: 100%;
+  padding-left: 15px;
 }

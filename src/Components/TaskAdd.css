@@ -1,23 +1,12 @@
-.taskToDo__addNew{
-    display: flex;
-}
-
-.wrap {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .button {
+    .button {
     min-width: 50px;
     min-height: 50px;
     font-family: 'Nunito', sans-serif;
     background: #4FD1C5;
-  background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgba(79,209,197,1) 100%);
+    background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgba(79,209,197,1) 100%);
     border: none;
     border-radius: 1000px;
-    box-shadow: 12px 12px 24px rgba(79,209,197,.64);
+    box-shadow: rgba(79,209,197,.64);
     transition: all 0.3s ease-in-out 0s;
     cursor: pointer;
     outline: none;
@@ -27,7 +16,7 @@
   
   .button:hover {
     color: #313133;
-    transform: translateY(-6px);
+    transform: translateY(-3px);
   }
   
   button:hover::before, button:focus::before {
@@ -39,22 +28,31 @@
     display: none;
   }
 
-.addNewTodo__input{
+
+
+.taskAdd__wrapper{
+  display: flex;
+  width: 100%;
+}
+
+.taskAdd__input{
     padding: 10px 20px;
     box-sizing: border-box;
     border: 2px solid rgba(129,230,217,1);
     border-radius: 4px;
     height: 50px;
-    width: 200px;
+    min-width: 200px;
+    width: 100%;
     font-size: 18px;
     font-weight: 500;
 }
 
-.addNewTodo__input_wrapper{
+.taskAdd__input_wrapper{
     margin-right: 8px;
 }
 
-.button__text{
+.taskAdd__buttonText{
     font-size: 30px;
     font-weight: 700;
 }
+

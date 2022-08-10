@@ -1,40 +1,41 @@
 import { useState } from 'react';
 import './App.css';
-import AddToDo from './Components/addToDo';
-import EditingToDo from './Components/editingToDo';
-import ListToDo from './Components/listToDo';
-import SearchToDo from './Components/searchToDo';
+import TaskAdd from './Components/TaskAdd';
+import TaskEditing from './Components/TaskEditing';
+import TaskList from './Components/TaskList';
+import TaskSearch from './Components/TaskSearch';
 
 function App() {
 
-  const [todos, setToDo] = useState([
+  const [tasks, setTasks] = useState([
     {
       id: 1,
-      title: "abc",
+      title: "Lorem Ipsum is simply dummy text of the printing.",
       description: "How can i do it? Ez",
       active: false,
     },
     {
       id: 2,
-      title: "ghj",
+      title: "Learning",
       description: "useState and useReducer plz!",
       active: true,
     },
   ]);
 
-  const [searchValue, setSearchValue] = useState('');
 
   return (
-    <div className='body_wrapper'>
-      <div className='taskToDo_body'>
-        <div className='todoLeft__title'>todo list</div>
-        <SearchToDo todos={todos} setToDo={setToDo} />
-        <ListToDo todos={todos} setToDo={setToDo} />
-        <div className='adddTodo__wrapper'> {/* Оболочка необходима для выделения крайнего элемента flex конструкции и привязки к полу*/}
-          {/* <AddToDo todos={todos} setToDo={setToDo} /> */}
+    <div className='todo__body'>
+      <div className='taskList__body_wrapper' >
+        <div className='taskList__title'>task list</div>
+        <TaskSearch tasks={tasks} setTasks={setTasks} />
+        <TaskList tasks={tasks} setTasks={setTasks} />
+        <div className='taskAdd__wrapper'> {/* Оболочка необходима для выделения крайнего элемента flex конструкции и привязки к полу*/}
+          <TaskAdd tasks={tasks} setTasks={setTasks} />
         </div>
       </div>
-      {/* <EditingToDo todos={todos} setToDo={setToDo} /> */}
+      <div className='taskDescription__body_wrapper'>
+        <TaskEditing tasks={tasks} />
+      </div>
     </div>
   );
 }

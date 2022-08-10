@@ -1,8 +1,8 @@
-.editingToDo__wrapper{
+.taskEditing__wrapper{
     width: 100%;
   }
   
-  .editingToDo__body_title{
+  .taskEditing__title{
     text-transform: uppercase;
     font-size: 32px;
     text-align: center;

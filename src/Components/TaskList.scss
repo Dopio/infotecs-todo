@@ -1,0 +1,95 @@
+.btn {
+  display: flex;
+  align-items: center;
+  height: 36px;
+  padding: 0 18px 0 8px;
+  letter-spacing: .25px;
+  border-radius: 24px;
+  cursor: pointer;
+}
+
+$delete-red: red;
+$gw-blue: rgb(52, 152, 219); /*#3498db  edit   */
+$gw-purple: rgb(142, 68, 173);  /*#8e44ad  save   */
+$gw-green: rgb(46, 204, 113); /*#2ecc71    new  */
+$gw-gray-5: rgb(85, 85, 85); /*#555555  cancel   */
+$gw-red: rgb(192, 57, 43); /*#c0392b  delete   */
+  
+.button {
+  font-family:'Open Sans';
+  display:inline-block;
+  color:#FFF;
+  border-radius: .25em;
+}
+
+.touch {
+  transition:ease-in-out .2s;
+  line-height:40px;
+  width:40px;
+  padding: 0px;
+}
+
+.edit:before, .save:before, .new:before, .delete:before {
+  font-family: FontAwesome;
+  font-size:1rem;
+  background:none;
+  color:#FFF;
+}
+
+
+.touch.edit:before, .touch.save:before, .touch.new:before, .touch.delete:before {
+  width:100%;
+  text-align:center;
+  font-size:1.25rem;
+}
+
+
+.edit {
+  background: $gw-blue;
+  border-bottom-right-radius: 15px;
+  border-top-right-radius: 15px;
+  
+  &:before {
+    content: "\f040";
+  }
+}
+
+.save {
+  background: $gw-purple;
+  border-bottom-right-radius: 15px;
+  border-top-right-radius: 15px;
+  
+  &:before {
+    content: "\f0c7";
+  }
+}
+
+.delete {
+  background: $gw-red;
+  margin-right: 5px;
+  &:before {content: "\f1f8";}
+}
+
+
+
+
+.tasks__list{
+  width: 100%;
+}
+
+.tasks__list_item{
+  display: flex;
+  justify-content:flex-end;
+  background-color: rgb(129,230,217);
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+
+.task__item_title{
+  margin-right: auto;   /* Прилипание заметки к правому краю */
+  padding: 10px;
+  font-size: 16px;
+  white-space: nowrap;  /* Одна из основных целей в три строчки СЫЫ ;D */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
