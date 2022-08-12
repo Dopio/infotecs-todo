@@ -27,6 +27,6 @@ export const TodoListContainer = () => {
       handleDeleteTodo={handleDeleteTodo}
       handleSaveTodo={handleSaveTodo}
     />
-    {/* <TodoEditingArea /> */}
+    {/* <TodoEditingArea state={state}/> */}
   </>
 }

@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
-import './TaskSearch.css'
+import React, { useState } from 'react'
+import classes from './TodoSearch.module.css'
 
-const TaskSearch = ({ tasks, setTasks }) => {
+export const TodoSearch = ({ state }) => {
   const [searchValue, setSearchValue] = useState('')
 
-  const filterTodo = (searchValue) => {
-    const newTasks = [...tasks]
+  /* const filterTodo = (searchValue) => {
+    const newTasks = [...state.todos]
     if (!searchValue) {
       return newTasks
     }
@@ -18,18 +18,30 @@ const TaskSearch = ({ tasks, setTasks }) => {
   useEffect(() => {
     const filteredTodo = filterTodo(searchValue)
     setTasks(filteredTodo)
-  }, [searchValue])
+  }, [searchValue]) */
 
   return (
-    <div className='task__search'>
+    <div className={classes.task__search}>
       <input
-        className='task__search_input'
+        className={classes.task__search_input}
         type="text"
+        value={searchValue}
         placeholder='Search task'
         onChange={(e) => setSearchValue(e.target.value)}
       />
+      {state.todos.filter((item) => {
+        if (searchValue === '') {
+          return null
+        } else if (item.title.toLowerCase().includes(searchValue.toLowerCase())) {
+          return item.title
+        } else return null
+      }).map((item, key = item.id) => {
+        return (
+          <div className='title' key={key}>
+            {item.title}
+          </div>
+        )
+      })}
     </div>
   )
 }
-
-export default TaskSearch

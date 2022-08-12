@@ -95,3 +95,9 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.taskList__title{
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 32px;
+}

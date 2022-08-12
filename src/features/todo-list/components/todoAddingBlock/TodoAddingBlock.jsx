@@ -17,11 +17,13 @@ export const TodoAddingBlock = ({ handleAddTodo }) => {
         />
       </div>
       <div className="taskAdd__button_wrapper">
-        <button onClick={() => handleAddTodo({
-          title: value,
-          id: uuidv4(),
-          description: ''
-        })} className="button">
+        <button
+          onClick={() => handleAddTodo({
+            title: value,
+            id: uuidv4(),
+            description: ''
+          }) & setValue('')}
+          className="button">
           <span className='taskAdd__buttonText'>+</span>
         </button>
       </div>

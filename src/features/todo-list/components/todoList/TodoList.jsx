@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { TodoAddingBlock } from '../todoAddingBlock/TodoAddingBlock'
 import { DeleteTodo } from '../todoPreview/deleteTodo/DeleteTodo'
-import { EditTodo } from '../todoPreview/editTodo/EditTodo'
+import { EditTodos } from '../todoPreview/editTodo/EditTodo'
 import { SaveTodo } from '../todoPreview/saveTodo/SaveTodo'
+import { TodoSearch } from '../todoSearch/TodoSearch'
 import classes from './TodoList.module.css'
 
 /* const filterTodo = (tasks, searchValue) => {
@@ -31,7 +32,12 @@ export const TodoList = ({
   }
 
   return (<>
+
     {<div className={classes.tasks__list}>{/* todo Preview для каждого из функций */}
+      <div className={classes.taskList__title}>
+        task list
+      </div>
+      <TodoSearch state={state}/>
       {
         state.todos.map(item => (
           <div className={classes.tasks__list_item} key={item.id}>
@@ -56,7 +62,7 @@ export const TodoList = ({
                   handleDeleteTodo={handleDeleteTodo}
                   itemId={item.id}
                 />
-                <EditTodo
+                <EditTodos
                   editTaskHandler={editTaskHandler}
                   title={item.title}
                   itemId={item.id}
