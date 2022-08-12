@@ -1,0 +1,67 @@
+.btn {
+  display: flex;
+  align-items: center;
+  height: 36px;
+  padding: 0 18px 0 8px;
+  letter-spacing: .25px;
+  border-radius: 24px;
+  cursor: pointer;
+}
+  
+.button {
+  font-family:'Open Sans';
+  display:inline-block;
+  color:#FFF;
+  border-radius: .25em;
+}
+
+.touch {
+  transition:ease-in-out .2s;
+  line-height:40px;
+  width:40px;
+  padding: 0px;
+}
+
+.edit:before, .save:before, .new:before, .delete:before {
+  font-family: FontAwesome;
+  font-size:1rem;
+  background:none;
+  color:#FFF;
+}
+
+
+.touch.edit:before, .touch.save:before, .touch.new:before, .touch.delete:before {
+  width:100%;
+  text-align:center;
+  font-size:1.25rem;
+}
+
+
+.edit {
+  background: rgb(52, 152, 219);
+  border-bottom-right-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.edit:before {
+  content: "\f040";
+}
+
+.save {
+  background: rgb(142, 68, 173);
+  border-bottom-right-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.save:before {
+  content: "\f0c7";
+}
+
+.delete {
+  background: rgb(192, 57, 43);
+  margin-right: 5px;
+}
+
+.delete:before {
+  content: "\f1f8";
+}

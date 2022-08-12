@@ -1,0 +1,33 @@
+/* html, body, #root {
+  height: 100%;
+} */
+
+.layout {
+    background-color: #07C7A4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 950px;
+}
+
+.content {
+    display: flex;
+    width: 1200px;
+    height: 720px;
+    background-color: #DCF5E6;
+    margin: 20px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    padding: 15px;
+}
+  
+/*.taskList__title{
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 32px;
+}
+  
+  .taskDescription__body_wrapper{
+    width: 100%;
+    padding-left: 15px;
+  } */
