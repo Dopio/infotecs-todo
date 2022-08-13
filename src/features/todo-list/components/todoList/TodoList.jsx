@@ -3,18 +3,8 @@ import { TodoAddingBlock } from '../todoAddingBlock/TodoAddingBlock'
 import { DeleteTodo } from '../todoPreview/deleteTodo/DeleteTodo'
 import { EditTodos } from '../todoPreview/editTodo/EditTodo'
 import { SaveTodo } from '../todoPreview/saveTodo/SaveTodo'
-import { TodoSearch } from '../todoSearch/TodoSearch'
+/* import { TodoSearch } from '../todoSearch/TodoSearch' */
 import classes from './TodoList.module.css'
-
-/* const filterTodo = (tasks, searchValue) => {
-  if (!searchValue) {
-    return tasks
-  }
-  console.log(tasks)
-  return tasks.filter((task) => {
-    return task.title.toLowerCase().includes(searchValue.toLowerCase())
-  })
-} */
 
 export const TodoList = ({
   state,
@@ -24,7 +14,7 @@ export const TodoList = ({
 }) => {
   const [value, setValue] = useState('')
   const [edit, setEdit] = useState(null)
-  /* const filtredtasks = filterTodo(tasks, searchValue) */
+  const [searchValue, setSearchValue] = useState('')
 
   const editTaskHandler = (id, title) => {
     setEdit(id)
@@ -32,14 +22,28 @@ export const TodoList = ({
   }
 
   return (<>
-
     {<div className={classes.tasks__list}>{/* todo Preview для каждого из функций */}
       <div className={classes.taskList__title}>
         task list
       </div>
-      <TodoSearch state={state}/>
+      {/* <TodoSearch state={state} /> */}
+      <div className={classes.task__search}>
+        <input
+          className={classes.task__search_input}
+          type="text"
+          value={searchValue}
+          placeholder='Search task'
+          onChange={(e) => setSearchValue(e.target.value)}
+        />
+      </div>
       {
-        state.todos.map(item => (
+        state.todos.filter((item) => {
+          if (searchValue === '') {
+            return item
+          } else if (item.title.toLowerCase().includes(searchValue.toLowerCase())) {
+            return item.title
+          } else return null
+        }).map(item => (
           <div className={classes.tasks__list_item} key={item.id}>
             {edit === item.id
               ? <>

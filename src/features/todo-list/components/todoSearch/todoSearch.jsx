@@ -3,23 +3,6 @@ import classes from './TodoSearch.module.css'
 
 export const TodoSearch = ({ state }) => {
   const [searchValue, setSearchValue] = useState('')
-
-  /* const filterTodo = (searchValue) => {
-    const newTasks = [...state.todos]
-    if (!searchValue) {
-      return newTasks
-    }
-    console.log(newTasks)
-    return newTasks.filter((task) => {
-      return task.title.toLowerCase().includes(searchValue.toLowerCase())
-    })
-  }
-
-  useEffect(() => {
-    const filteredTodo = filterTodo(searchValue)
-    setTasks(filteredTodo)
-  }, [searchValue]) */
-
   return (
     <div className={classes.task__search}>
       <input
