@@ -1,3 +1,33 @@
+.button {
+  min-width: 50px;
+  min-height: 50px;
+  font-family: 'Nunito', sans-serif;
+  background: #4FD1C5;
+  background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgba(79,209,197,1) 100%);
+  border: none;
+  border-radius: 1000px;
+  box-shadow: rgba(79,209,197,.64);
+  transition: all 0.3s ease-in-out 0s;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  padding: 5px;
+  }
+
+.button:hover {
+  color: #313133;
+  transform: translateY(-3px);
+}
+
+button:hover::before, button:focus::before {
+  opacity: 1;
+}
+
+button:hover::after, button:focus::after {
+  animation: none;
+  display: none;
+}
+
 .btn {
   display: flex;
   align-items: center;
@@ -65,3 +95,4 @@
 .delete:before {
   content: "\f1f8";
 }
+

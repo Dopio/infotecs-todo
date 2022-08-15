@@ -1,32 +1,34 @@
 import React, { useState } from 'react'
-import { TodoAddingBlock } from '../todoAddingBlock/TodoAddingBlock'
 import { DeleteTodo } from '../todoPreview/deleteTodo/DeleteTodo'
 import { EditTodos } from '../todoPreview/editTodo/EditTodo'
 import { SaveTodo } from '../todoPreview/saveTodo/SaveTodo'
-/* import { TodoSearch } from '../todoSearch/TodoSearch' */
 import classes from './TodoList.module.css'
 
 export const TodoList = ({
   state,
-  handleAddTodo,
   handleDeleteTodo,
-  handleSaveTodo
+  handleSaveTodo,
+  titleValue,
+  setTitleValue,
+  edit,
+  setEdit,
+  handleSetActiveTodo,
+  descriptValue,
+  setDescriptValue
 }) => {
-  const [value, setValue] = useState('')
-  const [edit, setEdit] = useState(null)
   const [searchValue, setSearchValue] = useState('')
 
-  const editTaskHandler = (id, title) => {
+  const editTaskHandler = (id, title, description) => {
     setEdit(id)
-    setValue(title)
+    setTitleValue(title)
+    setDescriptValue(description)
   }
 
-  return (<>
-    {<div className={classes.tasks__list}>{/* todo Preview для каждого из функций */}
+  return (
+    <div className={classes.tasks__list}>
       <div className={classes.taskList__title}>
         task list
       </div>
-      {/* <TodoSearch state={state} /> */}
       <div className={classes.task__search}>
         <input
           className={classes.task__search_input}
@@ -36,28 +38,24 @@ export const TodoList = ({
           onChange={(e) => setSearchValue(e.target.value)}
         />
       </div>
-      {
-        state.todos.filter((item) => {
-          if (searchValue === '') {
-            return item
-          } else if (item.title.toLowerCase().includes(searchValue.toLowerCase())) {
-            return item.title
-          } else return null
-        }).map(item => (
+      {state.todos.filter((item) => {
+        if (searchValue === '') {
+          return item
+        } else if (item.title.toLowerCase().includes(searchValue.toLowerCase())) {
+          return item.title
+        } else return null
+      })
+        .map(item => (
           <div className={classes.tasks__list_item} key={item.id}>
             {edit === item.id
               ? <>
-                <input
-                  className={classes.task__item_input}
-                  value={value}
-                  type="text"
-                  onChange={(e) => setValue(e.target.value)}
-                />
+                <div className={classes.task__item_title}>{item.title}</div>
                 <SaveTodo
                   handleSaveTodo={handleSaveTodo}
-                  title={value}
+                  title={titleValue}
                   itemId={item.id}
                   setEdit={setEdit}
+                  descriptValue={descriptValue}
                 />
               </>
               : <>
@@ -68,16 +66,16 @@ export const TodoList = ({
                 />
                 <EditTodos
                   editTaskHandler={editTaskHandler}
+                  handleSetActiveTodo={handleSetActiveTodo}
                   title={item.title}
                   itemId={item.id}
+                  description={item.description}
                 />
               </>
             }
           </div>
         ))
       }
-      <TodoAddingBlock handleAddTodo={handleAddTodo} />
-    </div>}
-  </>
+    </div>
   )
 }

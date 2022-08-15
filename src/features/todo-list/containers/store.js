@@ -10,7 +10,7 @@ export const initialState = {
       id: 2,
       title: 'Learning',
       description: 'useState and useReducer!',
-      active: true
+      active: false
     }
   ]
 }
@@ -20,7 +20,7 @@ export const reducer = (state, action) => {
     case 'add-todo':
       return {
         ...state,
-        todos: [...state.todos, action.todo]
+        todos: action.todo.title !== '' ? [...state.todos, action.todo] : state.todos
       }
     case 'delete-todo':
       return {
@@ -31,7 +31,18 @@ export const reducer = (state, action) => {
       return {
         ...state,
         todos: state.todos.map(item => (
-          item.id === action.id ? { ...item, title: action.title } : item
+          item.id === action.id
+            ? { ...item, title: action.title, description: action.description, active: false }
+            : item
+        ))
+      }
+    case 'edit-todo':
+      return {
+        ...state,
+        todos: state.todos.map(item => (
+          item.id === action.id
+            ? { ...item, active: true }
+            : { ...item, active: false }
         ))
       }
     default:

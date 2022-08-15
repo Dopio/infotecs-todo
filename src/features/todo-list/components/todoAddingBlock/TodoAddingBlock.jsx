@@ -21,7 +21,8 @@ export const TodoAddingBlock = ({ handleAddTodo }) => {
           onClick={() => handleAddTodo({
             title: value,
             id: uuidv4(),
-            description: ''
+            description: '',
+            active: false
           }) & setValue('')}
           className="button">
           <span className='taskAdd__buttonText'>+</span>

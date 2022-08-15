@@ -9,8 +9,14 @@ export const deleteTodo = (id) => ({
   id
 })
 
-export const saveTodo = (title, id) => ({
+export const saveTodo = (title, description, id) => ({
   type: 'save-todo',
   title,
+  description,
+  id
+})
+
+export const editTodo = (id) => ({
+  type: 'edit-todo',
   id
 })
