@@ -1,14 +1,12 @@
 import React from 'react'
-import { TodoAddingBlock } from '../../todo-list/components/todoAddingBlock/TodoAddingBlock'
-import classes from './TodoEditingAreaDescription.module.css'
+import classes from './TodoEditingArea.module.css'
 
 export const TodoEditingArea = ({
   state,
-  handleAddTodo,
   titleValue,
   setTitleValue,
-  setDescriptValue,
-  descriptValue
+  setDescriptionValue,
+  descriptionValue
 }) => {
   return (
     <div className={classes.editingArea__wrapper}>
@@ -32,8 +30,8 @@ export const TodoEditingArea = ({
                   className={classes.textArea__description}
                   cols="30"
                   rows="10"
-                  value={descriptValue}
-                  onChange={(e) => setDescriptValue(e.target.value)}
+                  value={descriptionValue}
+                  onChange={(e) => setDescriptionValue(e.target.value)}
                 />
               </div>
             </>
@@ -42,8 +40,6 @@ export const TodoEditingArea = ({
         </div>
       ))
       }
-
-      <TodoAddingBlock handleAddTodo={handleAddTodo} />
     </div >
   )
 }

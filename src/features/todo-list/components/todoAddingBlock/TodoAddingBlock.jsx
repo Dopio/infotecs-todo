@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import './TodoAddingBlock.css'
-import { v4 as uuidv4 } from 'uuid'
 
 export const TodoAddingBlock = ({ handleAddTodo }) => {
   const [value, setValue] = useState('')
@@ -20,7 +19,7 @@ export const TodoAddingBlock = ({ handleAddTodo }) => {
         <button
           onClick={() => handleAddTodo({
             title: value,
-            id: uuidv4(),
+            id: +String(performance.now()).replace('.', '') + Date.now(),
             description: '',
             active: false
           }) & setValue('')}

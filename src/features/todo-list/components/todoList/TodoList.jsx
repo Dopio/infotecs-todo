@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import { DeleteTodo } from '../todoPreview/deleteTodo/DeleteTodo'
-import { EditTodos } from '../todoPreview/editTodo/EditTodo'
-import { SaveTodo } from '../todoPreview/saveTodo/SaveTodo'
+import { TodoAddingBlock } from '../TodoAddingBlock/TodoAddingBlock'
+import { DeleteTodo } from '../todoPreview/DeleteTodo/DeleteTodo'
+import { EditTodos } from '../todoPreview/EditTodo/EditTodo'
+import { SaveTodo } from '../todoPreview/SaveTodo/SaveTodo'
 import classes from './TodoList.module.css'
 
 export const TodoList = ({
@@ -10,18 +11,23 @@ export const TodoList = ({
   handleSaveTodo,
   titleValue,
   setTitleValue,
-  edit,
-  setEdit,
   handleSetActiveTodo,
-  descriptValue,
-  setDescriptValue
+  descriptionValue,
+  setDescriptionValue,
+  handleAddTodo
 }) => {
   const [searchValue, setSearchValue] = useState('')
+  const [edit, setEdit] = useState(false)
 
   const editTaskHandler = (id, title, description) => {
     setEdit(id)
     setTitleValue(title)
-    setDescriptValue(description)
+    setDescriptionValue(description)
+  }
+
+  const onSaveTodo = (id) => {
+    handleSaveTodo(titleValue, descriptionValue, id)
+    setEdit(false)
   }
 
   return (
@@ -51,11 +57,7 @@ export const TodoList = ({
               ? <>
                 <div className={classes.task__item_title}>{item.title}</div>
                 <SaveTodo
-                  handleSaveTodo={handleSaveTodo}
-                  title={titleValue}
-                  itemId={item.id}
-                  setEdit={setEdit}
-                  descriptValue={descriptValue}
+                  handleSaveTodo={() => onSaveTodo(item.id)}
                 />
               </>
               : <>
@@ -76,6 +78,7 @@ export const TodoList = ({
           </div>
         ))
       }
+      <TodoAddingBlock handleAddTodo={handleAddTodo} />
     </div>
   )
 }

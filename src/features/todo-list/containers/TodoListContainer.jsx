@@ -1,14 +1,13 @@
 import React, { useReducer, useState } from 'react'
-import { TodoList } from '../components/todoList'
+import { TodoList } from '../components/TodoList/TodoList'
 import { reducer, initialState } from './store'
 import { addTodo, deleteTodo, editTodo, saveTodo } from './actions'
-import { TodoEditingArea } from '../../todo-editingArea/todoEditingAreaDescription/TodoEditingAreaDescription'
+import { TodoEditingArea } from '../../todo-editingArea/TodoEditingArea'
 
 export const TodoListContainer = () => {
   const [state, dispatch] = useReducer(reducer, initialState)
   const [titleValue, setTitleValue] = useState('')
-  const [descriptValue, setDescriptValue] = useState('')
-  const [edit, setEdit] = useState(null)
+  const [descriptionValue, setDescriptionValue] = useState('')
 
   const handleAddTodo = (todo) => {
     dispatch(addTodo(todo))
@@ -30,25 +29,21 @@ export const TodoListContainer = () => {
   return <>
     <TodoList
       state={state}
-      handleAddTodo={handleAddTodo}
       handleDeleteTodo={handleDeleteTodo}
       handleSaveTodo={handleSaveTodo}
       titleValue={titleValue}
       setTitleValue={setTitleValue}
-      edit={edit}
-      setEdit={setEdit}
       handleSetActiveTodo={handleSetActiveTodo}
-      descriptValue={descriptValue}
-      setDescriptValue={setDescriptValue}
+      descriptionValue={descriptionValue}
+      setDescriptionValue={setDescriptionValue}
+      handleAddTodo={handleAddTodo}
     />
     <TodoEditingArea
       state={state}
-      handleAddTodo={handleAddTodo}
       titleValue={titleValue}
       setTitleValue={setTitleValue}
-      edit={edit}
-      setDescriptValue={setDescriptValue}
-      descriptValue={descriptValue}
+      setDescriptionValue={setDescriptionValue}
+      descriptionValue={descriptionValue}
     />
   </>
 }
