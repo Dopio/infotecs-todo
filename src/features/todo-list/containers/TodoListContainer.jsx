@@ -25,7 +25,6 @@ export const TodoListContainer = () => {
     dispatch(editTodo(id))
   }
 
-  console.log(state.todos)
   return <>
     <TodoList
       state={state}
