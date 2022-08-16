@@ -2,6 +2,7 @@ import React from 'react'
 import clsx from 'clsx'
 import classes from './EditTodo.module.css'
 
+/* Редактирование Todo */
 export const EditTodos = ({
   editTaskHandler,
   itemId,

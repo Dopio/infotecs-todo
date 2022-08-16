@@ -5,6 +5,7 @@ import { EditTodos } from '../todoPreview/EditTodo/EditTodo'
 import { SaveTodo } from '../todoPreview/SaveTodo/SaveTodo'
 import classes from './TodoList.module.css'
 
+/* Список Todo */
 export const TodoList = ({
   state,
   handleDeleteTodo,

@@ -4,6 +4,7 @@ import { reducer, initialState } from './store'
 import { addTodo, deleteTodo, editTodo, saveTodo } from './actions'
 import { TodoEditingArea } from '../../todo-editingArea/TodoEditingArea'
 
+/* Контейнерная компонента для сборки проекта */
 export const TodoListContainer = () => {
   const [state, dispatch] = useReducer(reducer, initialState)
   const [titleValue, setTitleValue] = useState('')

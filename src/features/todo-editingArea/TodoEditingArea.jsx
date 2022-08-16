@@ -1,6 +1,7 @@
 import React from 'react'
 import classes from './TodoEditingArea.module.css'
 
+/* Область редактирования Todo */
 export const TodoEditingArea = ({
   state,
   titleValue,

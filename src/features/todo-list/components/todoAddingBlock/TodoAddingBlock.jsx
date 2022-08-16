@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './TodoAddingBlock.css'
 
+/* Блок добавления новой Todo */
 export const TodoAddingBlock = ({ handleAddTodo }) => {
   const [value, setValue] = useState('')
 
